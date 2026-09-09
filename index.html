@@ -1,16 +1,15 @@
-:<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glow Up - Makeup Essentials</title>
+  <title>GlowUp Beauty Hub</title>
   <style>
     /* ----------------------------------------------------
-       GLOBAL & NAVIGATION STYLES
+       CSS VARIABLES & THEME SETUP
     ---------------------------------------------------- */
     :root {
-      /* Colors defining the lively theme */
-      --color-a: #e91e63; /* Rose Pink (H1) */
+      --color-a: #e91e63; /* Rose Pink (H1 Underline) */
       --color-b: #8e24aa; /* Deep Magenta (H2) */
       --color-c: #5e35b1; /* Plum Purple (H3) */
       --color-d: #d81b60; /* Bold Coral (P2) */
@@ -20,20 +19,22 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: Arial, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       margin: 0;
       padding: 0;
-      transition: filter 0.4s ease, background-color 0.3s ease;
+      transition: filter 0.4s ease;
     }
 
-    /* JavaScript Black and White Mode Toggle Class */
+    /* JavaScript Toggle Class for Grayscale Mode */
     body.bw-mode {
       filter: grayscale(100%);
     }
 
-    /* Navigation Bar */
+    /* ----------------------------------------------------
+       NAVIGATION BAR
+    ---------------------------------------------------- */
     nav {
       display: flex;
       justify-content: space-between;
@@ -46,7 +47,7 @@
     nav .logo {
       font-size: 1.5rem;
       font-weight: bold;
-      color: #fff;
+      color: #ffffff;
     }
 
     nav ul {
@@ -58,9 +59,9 @@
     }
 
     nav ul li a {
-      color: #fff;
+      color: #ffffff;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: bold;
       transition: color 0.3s;
     }
 
@@ -68,68 +69,95 @@
       color: #ffe0b2;
     }
 
-    /* Toggle Button */
     .theme-btn {
-      background-color: #333;
-      color: #fff;
+      background-color: #333333;
+      color: #ffffff;
       border: none;
       padding: 8px 16px;
       border-radius: 20px;
       cursor: pointer;
       font-weight: bold;
-      transition: transform 0.2s, background-color 0.3s;
+      transition: transform 0.2s;
     }
 
     .theme-btn:hover {
       transform: scale(1.05);
     }
 
-    /* Main Container */
+    /* ----------------------------------------------------
+       MAIN LAYOUT & GALLERY
+    ---------------------------------------------------- */
     .container {
       max-width: 800px;
       margin: 2rem auto;
       background: var(--card-bg);
       padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .image-gallery {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .image-gallery img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .video-gallery {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .video-gallery iframe {
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     /* ----------------------------------------------------
-       REQUIREMENTS FROM IMAGE
+       WHITEBOARD FORMATTING SPECIFICATIONS
     ---------------------------------------------------- */
-    /* H1 - Underline, Color A */
+    /* H1: Underline, Color A */
     h1 {
       color: var(--color-a);
       text-decoration: underline;
-      font-size: 2.2rem;
     }
 
-    /* H2 - Color B */
+    /* H2: Color B */
     h2 {
       color: var(--color-b);
-      font-size: 1.8rem;
     }
 
-    /* H3 - Color C */
+    /* H3: Color C */
     h3 {
       color: var(--color-c);
-      font-size: 1.4rem;
     }
 
-    /* P1 - Italics (3 sentences) */
+    /* P1: Italics (3 sentences) */
     p.paragraph-1 {
       font-style: italic;
       line-height: 1.6;
     }
 
-    /* P2 - Bold, Color D */
+    /* P2: Bold, Color D */
     p.paragraph-2 {
       font-weight: bold;
       color: var(--color-d);
       line-height: 1.6;
     }
 
-    /* P3 - Special Tags */
+    /* P3: Inline formatting tags */
     p.paragraph-3 {
       line-height: 1.8;
     }
@@ -155,16 +183,16 @@
     <button class="theme-btn" id="toggleBwBtn">Toggle B&W Mode</button>
   </nav>
 
-  <!-- Main Content Area -->
-  <div class="container">
+  <!-- Main Content Container -->
+  <main class="container">
     
-    <!-- Heading 1 -->
+    <!-- H1 Heading (Color A & Underlined) -->
     <h1>Discover Your Ultimate Makeup Routine</h1>
 
-    <!-- Heading 2 -->
+    <!-- H2 Heading (Color B) -->
     <h2>1. The Art of Perfect Skin Preparation</h2>
 
-    <!-- Heading 3 -->
+    <!-- H3 Heading (Color C) -->
     <h3>Essential Steps for a Flawless Base</h3>
 
     <!-- Paragraph 1: Italics (3 sentences) -->
@@ -172,28 +200,56 @@
       Applying makeup seamlessly starts with a clean and well-hydrated canvas. Using a rich moisturizer ensures that your foundation blends naturally without looking cakey. Always remember to wear sunscreen to protect your glow throughout the day.
     </p>
 
-    <!-- Paragraph 2: Bold, Color D -->
+    <!-- Paragraph 2: Bold & Color D -->
     <p class="paragraph-2">
       Choosing the right shade of lipstick can instantly elevate your entire look and boost your confidence!
     </p>
 
-    <!-- Paragraph 3: Inline tags (mark, del, sup, sub) -->
+    <!-- Paragraph 3: Includes mark, del, sup, sub -->
     <p class="paragraph-3">
       Special Offer: Get our <mark>bestselling lip gloss</mark> today! Old price was <del>$25.00</del>, now only $15.00. 
       Formulated with Formula H<sub>2</sub>O for hydration and Vitamin E<sup>+</sup> for maximum shine.
     </p>
 
-  </div>
+    <!-- Image Gallery -->
+    <div class="image-gallery">
+      <img src="IMG-20260909-WA0005.jpg" alt="Makeup Look 1">
+      <img src="IMG-20260909-WA0003.jpg" alt="Makeup Look 2">
+      <img src="IMG-20260909-WA0004.jpg" alt="Makeup Look 3">
+    </div>
 
-  <!-- JavaScript -->
+    <!-- Video Embed Gallery -->
+    <div class="video-gallery">
+      <iframe 
+        width="315" 
+        height="560" 
+        src="https://www.youtube.com/embed/WwyMMLxmjeA" 
+        title="Festive Makeup Tutorial" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+
+      <iframe 
+        width="315" 
+        height="560" 
+        src="https://www.youtube.com/embed/zSyIdTRv8ac" 
+        title="Makeup Tutorial on Mature Skin" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </main>
+
+  <!-- JavaScript Black & White Toggle functionality -->
   <script>
     const toggleBtn = document.getElementById('toggleBwBtn');
 
     toggleBtn.addEventListener('click', () => {
-      // Toggle the 'bw-mode' class on the body tag
       document.body.classList.toggle('bw-mode');
 
-      // Update button text dynamically
       if (document.body.classList.contains('bw-mode')) {
         toggleBtn.textContent = 'Switch to Color Mode';
       } else {
@@ -203,27 +259,4 @@
   </script>
 
 </body>
-  </html>
-<img src="IMG-20260909-WA0005.jpg" alt="Makeup & Beauty Image" width="500">
-
-  <img src="IMG-20260909-WA0003.jpg" alt="Makeup & Beauty Image" width="500">
-
-<img src="IMG-20260909-WA0004.jpg" alt="Makeup & Beauty Image" width="500">
-<iframe 
-  width="315" 
-  height="560" 
-  src="https://www.youtube.com/embed/WwyMMLxmjeA" 
-  title="How To Create An Indian Festive Look | Festive Makeup Tutorial | #shorts | SUGAR Cosmetics" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-  allowfullscreen>
-</iframe>
-<iframe 
-  width="315" 
-  height="560" 
-  src="https://www.youtube.com/embed/zSyIdTRv8ac" 
-  title="Makeup Tutorial on Mature Skin" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-  allowfullscreen>
-</iframe>
+</html>
